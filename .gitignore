@@ -1,3 +1,4 @@
 venv
 QuotesProject/db.sqlite3
 QuotesProject/*/__pycache__
+QuotesProject/*/migrations/__pycache__

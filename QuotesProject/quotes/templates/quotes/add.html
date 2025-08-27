@@ -1,0 +1,31 @@
+{% extends 'quotes/base.html' %}
+
+{% block title %}Добавить цитату{% endblock %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    
+    <div>
+        {{ form.quote.label_tag }}
+        {{ form.quote }}
+    </div>
+
+    <div>
+        {{ form.author.label_tag }}
+        {{ form.author }}
+    </div>
+
+    <div>
+        {{ form.source.label_tag }}
+        {{ form.source }}
+    </div>
+
+    <div>
+        {{ form.weight.label_tag }}
+        {{ form.weight }}
+    </div>
+
+    <button type="submit">Добавить</button>
+</form>
+{% endblock %}

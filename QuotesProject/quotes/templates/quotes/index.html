@@ -1,0 +1,23 @@
+{% extends 'quotes/base.html' %}
+
+{% block title %}Случайная цитата{% endblock %}
+
+{% block content %}
+    {% if quote %}
+        {% include 'quotes/quote.html' with quote=quote %}
+
+        <div class="quote-actions">
+            <a href="{% url 'quotes:like' quote.id %}" class="btn btn-like">
+                👍
+            </a>
+            <a href="{% url 'quotes:dislike' quote.id %}" class="btn btn-dislike">
+                👎
+            </a>
+            <a href="{% url 'quotes:index' %}" class="btn btn-next">
+                👉 Следующая
+            </a>
+        </div>
+    {% else %}
+        Цитат пока нет
+    {% endif %}
+{% endblock %}

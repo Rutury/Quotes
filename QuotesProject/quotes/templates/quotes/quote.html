@@ -1,0 +1,13 @@
+<div class="quote">
+    <p class="quote-text">«{{ quote.quote }}»</p>
+    <p class="quote-author">— {{ quote.author }}</p>
+    {% if quote.source %}
+        <p class="quote-source">Источник: <em>{{ quote.source }}</em></p>
+    {% endif %}
+
+    <div class="quote-stats">
+        <span class="views">👁 {{ quote.views }}</span>
+        <span class="likes">👍 {{ quote.likes }}</span>
+        <span class="dislikes">👎 {{ quote.dislikes }}</span>
+    </div>
+</div>
