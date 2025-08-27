@@ -3,12 +3,18 @@ from quotes.models import Quote
 from random import randint
 from quotes.forms import QuoteForm
 from django.contrib import messages
+from django.db.models import Sum
 
 # Create your views here.
 def index(request):
-    count = Quote.objects.count()
-    if count:
-        quote = Quote.objects.all()[randint(0, count-1)]
+    totalWeight = Quote.objects.aggregate(total=Sum("weight"))["total"]
+    if totalWeight:
+        target = randint(0, totalWeight - 1)
+        for curr in Quote.objects.iterator():
+            target -= curr.weight
+            if target < 0:
+                quote = curr
+                break
         quote.views += 1
         quote.save()
     else:
