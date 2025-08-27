@@ -1,0 +1,3 @@
+venv
+QuotesProject/db.sqlite3
+QuotesProject/*/__pycache__
