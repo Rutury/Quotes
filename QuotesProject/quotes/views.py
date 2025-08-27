@@ -22,7 +22,7 @@ def index(request):
     return render(request, 'quotes/index.html', {'quote': quote})
 
 def top(request):
-    return render(request, "quotes/top.html", {'quotes': Quote.objects.order_by('-likes')[:10]})
+    return render(request, "quotes/top.html", {'quotes': Quote.objects.order_by('-likes', 'dislikes', 'views')[:10]})
 
 def add(request):
     if request.method == 'POST':
