@@ -7,13 +7,13 @@
         {% include 'quotes/quote.html' with quote=quote %}
 
         <div class="quote-actions">
-            <a href="{% url 'quotes:like' quote.id %}" class="btn btn-like">
+            <a href="{% url 'quotes:like' quote.id %}" onclick="this.onclick=null;" class="btn btn-like">
                 👍
             </a>
-            <a href="{% url 'quotes:dislike' quote.id %}" class="btn btn-dislike">
+            <a href="{% url 'quotes:dislike' quote.id %}" onclick="this.onclick=null;" class="btn btn-dislike">
                 👎
             </a>
-            <a href="{% url 'quotes:index' %}" class="btn btn-next">
+            <a href="{% url 'quotes:index' %}" onclick="this.onclick=null;" class="btn btn-next">
                 👉 Следующая
             </a>
         </div>
